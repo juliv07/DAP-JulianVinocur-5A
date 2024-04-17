@@ -10,7 +10,6 @@ class MainApp extends StatelessWidget {
   final TextEditingController userController = TextEditingController();
   final TextEditingController pswdController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,7 +34,7 @@ class MainApp extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: (){
-                if(userController.text=='julivino' && pswdController.text=='123456'){
+                if(userController.text=='julivino' && pswdController.text=='holaa'){
                   print('Login Success');
                 }
                 if(userController.text==''){
@@ -44,8 +43,14 @@ class MainApp extends StatelessWidget {
                 if(pswdController.text==''){
                   print('Contraseña vacía.');
                 }
-                else{
-                  print('Login failed');
+                if(userController.text=='julivino' && pswdController.text!='holaa'){
+                  print('Contraseña incorrecta');
+                }
+                if(userController.text!='julivino' && pswdController.text=='holaa'){
+                  print('Usuario incorrecto');
+                }
+                if(userController.text!='julivino' && pswdController.text!='holaa'){
+                  print('Contraseña y usuario incorrectos');
                 }
               }, child: const Text('Login'),
               ),
