@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String name = 'home';
-  const HomeScreen({super.key});
+  final String userName;
+  HomeScreen({super.key, this.userName = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Home Screen'),
       ),
       body: Center(
-        child: Text('Welcome'),
+        child: Text('Welcome $userName'),
         ),
     );
   }
