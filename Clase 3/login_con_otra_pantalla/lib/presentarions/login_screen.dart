@@ -47,7 +47,7 @@ class _LoginView extends StatelessWidget{
                   decoration: const InputDecoration(
                     hintText: 'Password',
                     icon: Icon(
-                      Icons.lock, 
+                      Icons.lock_outline_rounded, 
                       color: Color.fromARGB(255, 255, 0, 0),
                     )
                   ),
