@@ -34,6 +34,7 @@ class _LoginView extends StatelessWidget{
                 )
               ),
               TextField(
+                obscureText: true,
                 controller: pswdController,
                 decoration: const InputDecoration(
                   hintText: 'Password',
