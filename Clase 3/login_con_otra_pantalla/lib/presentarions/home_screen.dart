@@ -12,7 +12,10 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Home Screen'),
       ),
       body: Center(
-        child: Text('Welcome $userName'),
+        child: Text(
+          'Welcome $userName',
+          style: TextStyle(fontSize: 22, color: Color.fromARGB(255, 228, 118, 0))
+          ),
         ),
     );
   }
