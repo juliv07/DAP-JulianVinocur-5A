@@ -88,11 +88,8 @@ class _LoginView extends StatelessWidget {
                     ScaffoldMessenger.of(context).showSnackBar(userNotFound);
                     return;
                   } else {
-                    for (int i = 0; i < users.length; i++) {
-                      if (inputUser == users[i]) {
-                        indiceUser = i;
-                      }
-                    }
+                    indiceUser = users.indexOf(inputUser);
+
                     if (inputPswd == passwords[indiceUser]) {
                       context.pushNamed(HomeScreen.name,
                           extra: userController.text);

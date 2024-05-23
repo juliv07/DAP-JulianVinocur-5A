@@ -7,16 +7,26 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List users = ['julivino', 'pirulo123', 'fulano456'];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
-      ),
-      body: Center(
-        child: Text(
+        title: Text(
           'Welcome $userName',
-          style: TextStyle(fontSize: 22, color: Color.fromARGB(255, 228, 118, 0))
-          ),
+          style: const TextStyle(color: Color.fromARGB(255, 228, 118, 0)),
         ),
+      ),
+      body: ListView.builder(
+        itemCount: users.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text(users[index]),
+              subtitle: Text('Usuario ${index + 1}'),
+            ),
+          );
+        },
+      ),
     );
   }
 }
