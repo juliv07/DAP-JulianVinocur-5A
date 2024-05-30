@@ -40,17 +40,19 @@ class HomeScreen extends StatelessWidget {
           style: const TextStyle(color: Color.fromARGB(255, 228, 118, 0)),
         ),
       ),
-      body: ListView.builder(
-        itemCount: albums.length,
-        itemBuilder: (context, index) {
-          return Card(
-            color: Color.fromARGB(255, 194, 245, 255),
-            child: ListTile(
-              title: Text(albums[index]),
-              subtitle: Text(artists[index]),
-            ),
-          );
-        },
+      body: Expanded(
+        child: ListView.builder(
+          itemCount: albums.length,
+          itemBuilder: (context, index) {
+            return Card(
+              color: Color.fromARGB(255, 194, 245, 255),
+              child: ListTile(
+                title: Text(albums[index]),
+                subtitle: Text(artists[index]),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
