@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
           itemCount: albums.length,
           itemBuilder: (context, index) {
             return Card(
-              color: Color.fromARGB(255, 194, 245, 255),
+              color: const Color.fromARGB(255, 194, 245, 255),
               child: ListTile(
                 title: Text(albums[index]),
                 subtitle: Text(artists[index]),

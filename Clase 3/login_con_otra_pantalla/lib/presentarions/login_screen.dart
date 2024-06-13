@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:login_con_otra_pantalla/presentarions/home_screen.dart';
@@ -20,6 +22,7 @@ class _LoginView extends StatelessWidget {
 
   List users = ['julivino', 'pirulo123', 'fulano456'];
   List passwords = ['holaa', '123456789', 'qwertyuiop'];
+  //CÓMO HACER ESTO CON OBJETOS
 
   int indiceUser = 0;
 
