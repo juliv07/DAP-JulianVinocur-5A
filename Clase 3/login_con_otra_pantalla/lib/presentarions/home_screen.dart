@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_con_otra_pantalla/entities/Album.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String name = 'home';
@@ -33,6 +34,12 @@ class HomeScreen extends StatelessWidget {
       'Bruno Mars','Bad Bunny','Mancha De Rolando','Benjamín Amadeo','Coldplay','Airbag','Ed Sheeran','YSY A'
       ];
 
+    List<Album>albumList;
+
+    albumList = List.generate(albums.length, (index){
+      return Album(name:albums[index],artist:artists[index]);
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -42,13 +49,13 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Expanded(
         child: ListView.builder(
-          itemCount: albums.length,
+          itemCount: albumList.length,
           itemBuilder: (context, index) {
             return Card(
               color: const Color.fromARGB(255, 194, 245, 255),
               child: ListTile(
-                title: Text(albums[index]),
-                subtitle: Text(artists[index]),
+                title: Text(albumList[index].name),
+                subtitle: Text(albumList[index].artist),
               ),
             );
           },

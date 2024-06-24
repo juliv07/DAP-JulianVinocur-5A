@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:login_con_otra_pantalla/entities/User.dart';
 import 'package:login_con_otra_pantalla/presentarions/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -20,9 +21,11 @@ class _LoginView extends StatelessWidget {
   TextEditingController userController = TextEditingController();
   TextEditingController pswdController = TextEditingController();
 
-  List users = ['julivino', 'pirulo123', 'fulano456'];
-  List passwords = ['holaa', '123456789', 'qwertyuiop'];
-  //CÓMO HACER ESTO CON OBJETOS
+  List<User> userList = [
+    User(name: 'julivino', password: 'holaa'),
+    User(name: 'pirulo123', password: '123456789'),
+    User(name: 'fulano456', password: 'qwertyuiop'),
+  ];
 
   int indiceUser = 0;
 
@@ -76,7 +79,7 @@ class _LoginView extends StatelessWidget {
                     return;
                   }
 
-                  if (users.contains(inputUser) == false) {
+                  /*if () {
                     //print('Usuario no encontrado.');
                     SnackBar userNotFound = SnackBar(
                       content: const Text(
@@ -108,6 +111,24 @@ class _LoginView extends StatelessWidget {
                       );
                       ScaffoldMessenger.of(context).showSnackBar(incorrectPswd);
                     }
+                  }*/
+
+                  if(userList.any((User)=>
+                  User.name==inputUser &&
+                  User.password==inputPswd)){
+                    context.pushNamed(HomeScreen.name,extra: userController.text);
+                  }
+                  else{
+                    SnackBar incorrectPswd = SnackBar(
+                        content: const Text('Usuario o contraseña incorrectos.',
+                            style: TextStyle(color: Colors.white)),
+                        backgroundColor: const Color.fromARGB(204, 255, 40, 40),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        duration: const Duration(seconds: 2),
+                      );
+                    ScaffoldMessenger.of(context).showSnackBar(incorrectPswd);
                   }
                 },
                 child: const Text('Login'),
